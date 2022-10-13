@@ -57,7 +57,7 @@ function minesweeper(matrix) {
 //   [false, false, false],
 // ];
 
-minesweeper(matrix);
+// minesweeper(matrix);
 
 module.exports = {
   minesweeper,
