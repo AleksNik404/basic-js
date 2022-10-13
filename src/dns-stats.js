@@ -22,11 +22,28 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  *
  */
-function getDNSStats(/* domains */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function getDNSStats(domains) {
+  let cache = {};
+
+  domains.forEach((el) => {
+    //Reverse the string and add "." first char || 'info.epam.com' => '.com.epam.info'
+    let reverse = `.` + el.split('.').reverse().join('.');
+
+    while (reverse) {
+      reverse in cache ? cache[reverse]++ : (cache[reverse] = 1);
+      //slice part to last dot
+      reverse = reverse.slice(0, reverse.lastIndexOf('.'));
+    }
+  });
+
+  return cache;
 }
 
 module.exports = {
-  getDNSStats
+  getDNSStats,
 };
+// console.log();
+
+// console.log(getDNSStats(['epam.com'])); //, { '.com': 1, '.com.epam': 1 });
+// console.log(getDNSStats(['epam.com', 'info.epam.com'])); //, { '.com': 2, '.com.epam': 2, '.com.epam.info': 1 });
+// console.log(getDNSStats([])); //, {});
