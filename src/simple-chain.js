@@ -35,24 +35,22 @@ const chainMaker = {
   },
 };
 
-console.log(chainMaker);
+// console.log(chainMaker);
 
-console.log(
-  chainMaker
-    .addLink('GHI')
-    .addLink(null)
-    .reverseChain()
-    .addLink(333)
-    .reverseChain()
-    .reverseChain()
-    .addLink(0)
-    .reverseChain()
-    .reverseChain()
-    .addLink('GHI')
-    .finishChain()
-);
-
-console.log(chainMaker);
+// console.log(
+//   chainMaker
+//     .addLink('GHI')
+//     .addLink(null)
+//     .reverseChain()
+//     .addLink(333)
+//     .reverseChain()
+//     .reverseChain()
+//     .addLink(0)
+//     .reverseChain()
+//     .reverseChain()
+//     .addLink('GHI')
+//     .finishChain()
+// );
 
 module.exports = {
   chainMaker,

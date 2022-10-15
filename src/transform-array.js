@@ -14,13 +14,15 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function transform(arr) {
-  if (!Array.isArray(arr)) throw new Error(`'arr' parameter must be an instance of the Array!`);
+  if (!Array.isArray(arr))
+    throw new Error(`'arr' parameter must be an instance of the Array!`);
 
   const commands = '--discard-next --discard-prev --double-next --double-prev';
 
   const newArr = [...arr];
   for (let i = 0; i < arr.length; i++) {
-    if (newArr[i] == '--discard-next' && i !== newArr.length - 1) newArr[i + 1] = false;
+    if (newArr[i] == '--discard-next' && i !== newArr.length - 1)
+      newArr[i + 1] = false;
     if (newArr[i] == '--discard-prev' && i !== 0) newArr[i - 1] = false;
 
     if (newArr[i] == '--double-next' && i !== arr.length - 1)
@@ -38,8 +40,8 @@ function transform(arr) {
 module.exports = {
   transform,
 };
-console.log(transform([1]));
-console.log(transform(['--discard-prev', '1']));
+// console.log(transform([1]));
+// console.log(transform(['--discard-prev', '1']));
 
 // console.log(transform([1, 2, 3, '--discard-next', 1337, '--double-prev', 4, 5])); // output: [1, 2, 3, 4, 5]
 
